@@ -1,3 +1,146 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Play";
+  src: url("/fonts/Play-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Play";
+  src: url("/fonts/Play-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Font */
+  --font-sans: "Play", sans-serif;
+
+  /* Text */
+  --foreground: #ffffff;
+  --muted-foreground: #7c83a6;
+
+  /* Sidebar */
+  --sidebar-bg-from: #281732;
+  --sidebar-bg-to: #1A1529;
+  --sidebar-item-active: #3b4261;
+
+  /* Page */
+  --page-bg-from: #170921;
+  --page-bg-to: #1B1414;
+
+  /* Pokemon Types */
+  --type-fire-primary: #f97316;
+  --type-fire-secondary: #fb923c;
+  --type-water-primary: #60a5fa;
+  --type-water-secondary: #93c5fd;
+  --type-grass-primary: #5fd068;
+  --type-grass-secondary: #6ee77b;
+  --type-electric-primary: #fde047;
+  --type-electric-secondary: #facc15;
+  --type-psychic-primary: #fb7185;
+  --type-psychic-secondary: #fda4af;
+  --type-ice-primary: #67e8f9;
+  --type-ice-secondary: #a5f3fc;
+  --type-dragon-primary: #6366f1;
+  --type-dragon-secondary: #818cf8;
+  --type-dark-primary: #4b5563;
+  --type-dark-secondary: #6b7280;
+  --type-fairy-primary: #f472b6;
+  --type-fairy-secondary: #f9a8d4;
+  --type-fighting-primary: #e11d48;
+  --type-fighting-secondary: #ef4444;
+  --type-poison-primary: #a855f7;
+  --type-poison-secondary: #c084fc;
+  --type-ground-primary: #f59e0b;
+  --type-ground-secondary: #fbbf24;
+  --type-flying-primary: #93c5fd;
+  --type-flying-secondary: #bae6fd;
+  --type-bug-primary: #92d050;
+  --type-bug-secondary: #a3e635;
+  --type-rock-primary: #d6d3a3;
+  --type-rock-secondary: #e7e5b4;
+  --type-ghost-primary: #8b5cf6;
+  --type-ghost-secondary: #a78bfa;
+  --type-steel-primary: #94a3b8;
+  --type-steel-secondary: #cbd5e1;
+  --type-normal-primary: #9ca3af;
+  --type-normal-secondary: #d1d5db;
+}
+
+@theme {
+  /* Font */
+  --font-sans: "Play", sans-serif;
+
+  /* Text */
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Page Gradient */
+  --color-page-bg-from: var(--page-bg-from);
+  --color-page-bg-to: var(--page-bg-to);
+
+  /* Sidebar */
+  --color-sidebar-bg-from: var(--sidebar-bg-from);
+  --color-sidebar-bg-to: var(--sidebar-bg-to);
+
+  /* Type Gradients */
+  --color-grass-primary: #5fd068;
+  --color-grass-secondary: #6ee77b;
+  --color-fire-primary: #f97316;
+  --color-fire-secondary: #fb923c;
+  --color-water-primary: #60a5fa;
+  --color-water-secondary: #93c5fd;
+  --color-electric-primary: #fde047;
+  --color-electric-secondary: #facc15;
+  --color-psychic-primary: #fb7185;
+  --color-psychic-secondary: #fda4af;
+  --color-ghost-primary: #8b5cf6;
+  --color-ghost-secondary: #a78bfa;
+  --color-dark-primary: #4b5563;
+  --color-dark-secondary: #6b7280;
+  --color-fairy-primary: #f472b6;
+  --color-fairy-secondary: #f9a8d4;
+  --color-poison-primary: #a855f7;
+  --color-poison-secondary: #c084fc;
+  --color-ground-primary: #f59e0b;
+  --color-ground-secondary: #fbbf24;
+  --color-rock-primary: #d6d3a3;
+  --color-rock-secondary: #e7e5b4;
+  --color-ice-primary: #67e8f9;
+  --color-ice-secondary: #a5f3fc;
+  --color-flying-primary: #93c5fd;
+  --color-flying-secondary: #bae6fd;
+  --color-steel-primary: #94a3b8;
+  --color-steel-secondary: #cbd5e1;
+  --color-dragon-primary: #6366f1;
+  --color-dragon-secondary: #818cf8;
+
+  --color-bug-primary: #92d050;
+  --color-bug-secondary: #a3e635;
+
+  --color-fighting-primary: #e11d48;
+  --color-fighting-secondary: #ef4444;
+
+  --color-normal-primary: #9ca3af;
+  --color-normal-secondary: #d1d5db;
+
+}
+
+@layer base {
+  body {
+    @apply font-sans min-h-dvh bg-linear-to-bl from-page-bg-from to-page-bg-to text-foreground;
+  }
+}
+
+@layer components {
+  .side-navigation {
+    @apply bg-linear-to-t from-sidebar-bg-from to-sidebar-bg-to;
+  }
+}
+
+
