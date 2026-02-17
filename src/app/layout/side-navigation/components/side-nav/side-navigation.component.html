@@ -1,0 +1,7 @@
+<nav class="bg-sidebar text-foreground p-4 rounded-2xl h-full side-navigation text-lg flex flex-col gap-4 shadow-md border border-card-border">
+  <ul>
+    @for (route of navigationConfig.items; track route.label) {
+      <app-side-nav-item [label]="route.label" [routerLink]="route.routerLink"/>
+    }
+  </ul>
+</nav>

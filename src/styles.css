@@ -25,9 +25,14 @@
   --muted-foreground: #7c83a6;
 
   /* Sidebar */
-  --sidebar-bg-from: #281732;
-  --sidebar-bg-to: #1A1529;
+  --sidebar-bg-from: rgba(47, 33, 59, 0.8);
+  --sidebar-bg-to: rgba(35, 25, 36, 0.8);
   --sidebar-item-active: #3b4261;
+
+  /* Card */
+  --card-bg-from: rgba(47, 33, 59, 0.8);
+  --card-bg-to: rgba(35, 25, 36, 0.8);
+  --card-border: #2F2340;
 
   /* Page */
   --page-bg-from: #170921;
@@ -87,6 +92,10 @@
   /* Sidebar */
   --color-sidebar-bg-from: var(--sidebar-bg-from);
   --color-sidebar-bg-to: var(--sidebar-bg-to);
+
+  /* Card */
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
 
   /* Type Gradients */
   --color-grass-primary: #5fd068;

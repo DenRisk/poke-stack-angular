@@ -1,11 +1,9 @@
-import {Component, signal} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {Component} from '@angular/core';
+import {MainLayoutComponent} from './layout/main-layout/components/main-layout/main-layout.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [MainLayoutComponent],
   templateUrl: './app.html',
 })
-export class App {
-  protected readonly title = signal('poke-stack-angular');
-}
+export class App {}
