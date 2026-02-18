@@ -1,9 +1,11 @@
+import { IconName } from '../../../shared/ui/icon/types/icon.types';
+
 export interface SideNavigationItemModel {
-  label: string
-  iconId: string
-  routerLink: string
+  label: string;
+  iconId: IconName;
+  routerLink: string;
 }
 
 export interface SideNavigationModel {
-  items: SideNavigationItemModel[]
+  items: SideNavigationItemModel[];
 }

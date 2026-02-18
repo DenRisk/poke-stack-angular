@@ -1,7 +1,17 @@
-<nav class="bg-sidebar text-foreground p-4 rounded-2xl h-full side-navigation text-lg flex flex-col gap-4 shadow-md border border-card-border">
-  <ul>
+<nav
+  class="bg-sidebar text-foreground px-4 py-8 rounded-2xl h-full side-navigation text-lg flex flex-col gap-4 shadow-md border border-card-border"
+>
+  <div class="px-4 mb-8">
+    <app-logo [useText]="true"/>
+  </div>
+
+  <ul class="flex flex-col gap-4">
     @for (route of navigationConfig.items; track route.label) {
-      <app-side-nav-item [label]="route.label" [routerLink]="route.routerLink"/>
+      <app-side-nav-item
+        [label]="route.label"
+        [routerLink]="route.routerLink"
+        [iconId]="route.iconId"
+      />
     }
   </ul>
 </nav>

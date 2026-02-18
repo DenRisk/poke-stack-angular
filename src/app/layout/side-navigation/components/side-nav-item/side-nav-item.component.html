@@ -1,6 +1,11 @@
-<li class="font-bold text-lg text-foreground">
-  <a [routerLink]="routerLink()" class="flex flex-row gap-2 py-3 px-2 w-full items-center">
-    <app-icon [iconId]="'icon-pokedex'" [size]="20" [color]="'#FFFFFF'"></app-icon>
-    <p>{{label()}}</p>
+<li class="font-bold text-base text-foreground">
+  <a
+    [routerLink]="routerLink()"
+    [routerLinkActiveOptions]="{exact: true}"
+    class="flex flex-row gap-3 py-2 px-4 w-full leading-none hover:bg-sidebar-hover rounded-full items-end"
+    routerLinkActive="bg-sidebar-active"
+  >
+    <app-icon [iconId]="iconId()" [size]="16"></app-icon>
+    <p>{{ label() }}</p>
   </a>
 </li>

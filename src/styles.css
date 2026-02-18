@@ -1,16 +1,16 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
-  font-family: "Play";
-  src: url("/fonts/Play-Regular.woff2") format("woff2");
+  font-family: 'Play';
+  src: url('/fonts/Play-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Play";
-  src: url("/fonts/Play-Bold.woff2") format("woff2");
+  font-family: 'Play';
+  src: url('/fonts/Play-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -18,7 +18,7 @@
 
 :root {
   /* Font */
-  --font-sans: "Play", sans-serif;
+  --font-sans: 'Play', sans-serif;
 
   /* Text */
   --foreground: #ffffff;
@@ -27,16 +27,17 @@
   /* Sidebar */
   --sidebar-bg-from: rgba(47, 33, 59, 0.8);
   --sidebar-bg-to: rgba(35, 25, 36, 0.8);
-  --sidebar-item-active: #3b4261;
+  --sidebar-active: #3E2B4F;
+  --sidebar-hover: #553E69;
 
   /* Card */
   --card-bg-from: rgba(47, 33, 59, 0.8);
   --card-bg-to: rgba(35, 25, 36, 0.8);
-  --card-border: #2F2340;
+  --card-border: #2f2340;
 
   /* Page */
   --page-bg-from: #170921;
-  --page-bg-to: #1B1414;
+  --page-bg-to: #1b1414;
 
   /* Pokemon Types */
   --type-fire-primary: #f97316;
@@ -79,7 +80,7 @@
 
 @theme {
   /* Font */
-  --font-sans: "Play", sans-serif;
+  --font-sans: 'Play', sans-serif;
 
   /* Text */
   --color-foreground: var(--foreground);
@@ -92,9 +93,12 @@
   /* Sidebar */
   --color-sidebar-bg-from: var(--sidebar-bg-from);
   --color-sidebar-bg-to: var(--sidebar-bg-to);
+  --color-sidebar-active: var(--sidebar-active);
+  --color-sidebar-hover: var(--sidebar-hover);
 
   /* Card */
-  --color-card-bg: var(--card-bg);
+  --color-card-bg-from: var(--card-bg-from);
+  --color-card-bg-to: var(--card-bg-to);
   --color-card-border: var(--card-border);
 
   /* Type Gradients */
@@ -137,7 +141,6 @@
 
   --color-normal-primary: #9ca3af;
   --color-normal-secondary: #d1d5db;
-
 }
 
 @layer base {
@@ -150,6 +153,9 @@
   .side-navigation {
     @apply bg-linear-to-t from-sidebar-bg-from to-sidebar-bg-to;
   }
+
+  .card-gradient {
+    @apply bg-linear-to-t from-card-bg-from to-card-bg-to;
+  }
+
 }
-
-
