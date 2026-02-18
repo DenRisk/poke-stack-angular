@@ -1,0 +1,14 @@
+{
+  "paths": {
+    "inputDir": "public/icons",
+    "spriteOutputDir": "public/icons/sprite",
+    "typeOutputFile": "src/app/shared/ui/icon/types/icon.types.ts"
+  },
+  "sprite": {
+    "fileName": "sprite.svg",
+    "symbolPrefix": "icon-"
+  },
+  "component": {
+    "spritePublicPath": "icons/sprite/sprite.svg"
+  }
+}

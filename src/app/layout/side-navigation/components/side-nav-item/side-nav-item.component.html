@@ -1,6 +1,6 @@
-<li class="font-bold text-lg">
+<li class="font-bold text-lg text-foreground">
   <a [routerLink]="routerLink()" class="flex flex-row gap-2 py-3 px-2 w-full items-center">
-    <div class="w-3 h-3 bg-fire-primary"></div>
+    <app-icon [iconId]="'icon-pokedex'" [size]="20" [color]="'#FFFFFF'"></app-icon>
     <p>{{label()}}</p>
   </a>
 </li>
