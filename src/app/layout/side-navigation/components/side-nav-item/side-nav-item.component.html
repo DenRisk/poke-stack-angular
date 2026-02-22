@@ -1,9 +1,9 @@
-<li class="font-bold text-base text-foreground">
+<li class="font-bold text-base text-">
   <a
     [routerLink]="routerLink()"
     [routerLinkActiveOptions]="{exact: true}"
-    class="flex flex-row gap-3 py-2 px-4 w-full leading-none hover:bg-sidebar-hover rounded-full items-end"
-    routerLinkActive="bg-sidebar-active"
+    routerLinkActive="navbar-item-active text-typo-primary"
+    class="flex flex-row gap-3 py-2 px-4 w-full leading-none rounded-full items-end text-typo-secondary hover:text-typo-primary [&.navbar-item-active]:text-typo-primary"
   >
     <app-icon [iconId]="iconId()" [size]="16"></app-icon>
     <p>{{ label() }}</p>
