@@ -1,0 +1,18 @@
+<div class="rounded-lg card-gradient overflow-hidden">
+  <div class="w-full h-36 flex items-center justify-center p-3 relative">
+    <app-pokedex-type-circle class="absolute bottom-0" [pokemonType]="'grass'"/>
+    <app-image
+      class="max-w-16 gap-1 z-50 w-full"
+      [src]="'/images/bisasam001.png'"
+      [alt]="'Bisasam'"
+    />
+  </div>
+  <div class="p-3 flex flex-col gap-1">
+    <p class="text-[10px] font-bold text-typo-secondary leading-none">Nr. 001</p>
+    <p class="text-sm font-bold leading-none">Bisasam</p>
+    <div class="flex flex-wrap gap-2 pt-3 pb-2">
+      <app-type [pokemonType]="'grass'" [size]="'sm'" [label]="'Plant'"/>
+      <app-type [pokemonType]="'fire'" [size]="'sm'" [label]="'Fire'"/>
+    </div>
+  </div>
+</div>

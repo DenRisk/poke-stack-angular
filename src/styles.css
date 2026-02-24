@@ -33,14 +33,22 @@
   /* Form Control */
   --control-bg: #2E254B;
 
+  /* Tag */
+  --tag-bg: #2E254B;
+
   /* Card */
-  --card-bg-from: rgba(47, 33, 59, 0.8);
-  --card-bg-to: rgba(35, 25, 36, 0.8);
+  --card-bg-from: #29214A;
+  --card-bg-to: #101032;
   --card-border: #2f2340;
+  --card-bg-transparent: rgba(50, 61, 96, 0.5);
 
   /* Page */
   --page-bg-from: #0D0924;
   --page-bg-to: #191428;
+
+  /* Pokemon Type Default */
+  --type-default-primary: rgba(255, 255, 255, 1);
+  --type-default-secondary: rgba(255, 255, 255, 0);
 
   /* Pokemon Types */
   --type-fire-primary: #f97316;
@@ -96,6 +104,9 @@
   /* Form Control */
   --color-control-bg: var(--control-bg);
 
+  /* Tag */
+  --color-tag-bg: var(--tag-bg);
+
   /* Sidebar */
   --color-sidebar-bg-from: var(--sidebar-bg-from);
   --color-sidebar-bg-to: var(--sidebar-bg-to);
@@ -106,44 +117,49 @@
   --color-card-bg-from: var(--card-bg-from);
   --color-card-bg-to: var(--card-bg-to);
   --color-card-border: var(--card-border);
+  --color-card-bg-transparent: var(--card-bg-transparent);
+
+  /* Type Default */
+  --color-default-primary: var(--type-default-primary);
+  --color-default-secondary: var(--type-default-secondary);
 
   /* Type Gradients */
-  --color-grass-primary: #5fd068;
-  --color-grass-secondary: #6ee77b;
-  --color-fire-primary: #f97316;
-  --color-fire-secondary: #fb923c;
-  --color-water-primary: #60a5fa;
-  --color-water-secondary: #93c5fd;
-  --color-electric-primary: #fde047;
-  --color-electric-secondary: #facc15;
-  --color-psychic-primary: #fb7185;
-  --color-psychic-secondary: #fda4af;
-  --color-ghost-primary: #8b5cf6;
-  --color-ghost-secondary: #a78bfa;
-  --color-dark-primary: #4b5563;
-  --color-dark-secondary: #6b7280;
-  --color-fairy-primary: #f472b6;
-  --color-fairy-secondary: #f9a8d4;
-  --color-poison-primary: #a855f7;
-  --color-poison-secondary: #c084fc;
-  --color-ground-primary: #f59e0b;
-  --color-ground-secondary: #fbbf24;
-  --color-rock-primary: #d6d3a3;
-  --color-rock-secondary: #e7e5b4;
-  --color-ice-primary: #67e8f9;
-  --color-ice-secondary: #a5f3fc;
-  --color-flying-primary: #93c5fd;
-  --color-flying-secondary: #bae6fd;
-  --color-steel-primary: #94a3b8;
-  --color-steel-secondary: #cbd5e1;
-  --color-dragon-primary: #6366f1;
-  --color-dragon-secondary: #818cf8;
-  --color-bug-primary: #92d050;
-  --color-bug-secondary: #a3e635;
-  --color-fighting-primary: #e11d48;
-  --color-fighting-secondary: #ef4444;
-  --color-normal-primary: #9ca3af;
-  --color-normal-secondary: #d1d5db;
+  --color-grass-primary: var(--type-grass-primary);
+  --color-grass-secondary: var(--type-grass-secondary);
+  --color-fire-primary: var(--type-fire-primary);
+  --color-fire-secondary: var(--type-fire-secondary);
+  --color-water-primary: var(--type-water-primary);
+  --color-water-secondary: var(--type-water-secondary);
+  --color-electric-primary: var(--type-electric-primary);
+  --color-electric-secondary: var(--type-electric-secondary);
+  --color-psychic-primary: var(--type-psychic-primary);
+  --color-psychic-secondary: var(--type-psychic-secondary);
+  --color-ghost-primary: var(--type-ghost-primary);
+  --color-ghost-secondary: var(--type-ghost-secondary);
+  --color-dark-primary: var(--type-dark-primary);
+  --color-dark-secondary: var(--type-dark-secondary);
+  --color-fairy-primary: var(--type-fairy-primary);
+  --color-fairy-secondary: var(--type-fairy-secondary);
+  --color-poison-primary: var(--type-poison-primary);
+  --color-poison-secondary: var(--type-poison-secondary);
+  --color-ground-primary: var(--type-ground-primary);
+  --color-ground-secondary: var(--type-ground-secondary);
+  --color-rock-primary: var(--type-rock-primary);
+  --color-rock-secondary: var(--type-rock-secondary);
+  --color-ice-primary: var(--type-ice-primary);
+  --color-ice-secondary: var(--type-ice-secondary);
+  --color-flying-primary: var(--type-flying-primary);
+  --color-flying-secondary: var(--type-flying-secondary);
+  --color-steel-primary: var(--type-steel-primary);
+  --color-steel-secondary: var(--type-steel-secondary);
+  --color-dragon-primary: var(--type-dragon-primary);
+  --color-dragon-secondary: var(--type-dragon-secondary);
+  --color-bug-primary: var(--type-bug-primary);
+  --color-bug-secondary: var(--type-bug-secondary);
+  --color-fighting-primary: var(--type-fighting-primary);
+  --color-fighting-secondary: var(--type-fighting-secondary);
+  --color-normal-primary: var(--type-normal-primary);
+  --color-normal-secondary: var(--type-normal-secondary);
 }
 
 @layer base {
@@ -168,102 +184,154 @@
   .navbar-item-active{
     @apply bg-linear-to-r from-sidebar-item-active-from to-sidebar-item-active-to text-typo-primary;
   }
+}
 
-  .type-gradient {
-    background-image: linear-gradient(
-      to bottom,
-      var(--type-secondary),
-      var(--type-primary)
-    );
+@layer utilities {
+  .type-default{
+    @apply bg-linear-to-b from-default-primary to-default-secondary;
   }
 
   .type-fire {
-    --type-primary: var(--color-fire-primary);
-    --type-secondary: var(--color-fire-secondary);
+    @apply bg-linear-to-b from-fire-primary to-fire-secondary;
   }
 
   .type-water {
-    --type-primary: var(--color-water-primary);
-    --type-secondary: var(--color-water-secondary);
+    @apply bg-linear-to-b from-water-primary to-water-secondary;
   }
 
   .type-grass {
-    --type-primary: var(--color-grass-primary);
-    --type-secondary: var(--color-grass-secondary);
+    @apply bg-linear-to-b from-grass-primary to-grass-secondary;
   }
 
   .type-electric {
-    --type-primary: var(--color-electric-primary);
-    --type-secondary: var(--color-electric-secondary);
+    @apply bg-linear-to-b from-electric-primary to-electric-secondary;
   }
 
   .type-psychic {
-    --type-primary: var(--color-psychic-primary);
-    --type-secondary: var(--color-psychic-secondary);
+    @apply bg-linear-to-b from-psychic-primary to-psychic-secondary;
   }
 
   .type-ghost {
-    --type-primary: var(--color-ghost-primary);
-    --type-secondary: var(--color-ghost-secondary);
+    @apply bg-linear-to-b from-ghost-primary to-ghost-secondary;
   }
 
   .type-dark {
-    --type-primary: var(--color-dark-primary);
-    --type-secondary: var(--color-dark-secondary);
+    @apply bg-linear-to-b from-dark-primary to-dark-secondary;
   }
 
   .type-fairy {
-    --type-primary: var(--color-fairy-primary);
-    --type-secondary: var(--color-fairy-secondary);
+    @apply bg-linear-to-b from-fairy-primary to-fairy-secondary;
   }
 
   .type-poison {
-    --type-primary: var(--color-poison-primary);
-    --type-secondary: var(--color-poison-secondary);
+    @apply bg-linear-to-b from-poison-primary to-poison-secondary;
   }
 
   .type-ground {
-    --type-primary: var(--color-ground-primary);
-    --type-secondary: var(--color-ground-secondary);
+    @apply bg-linear-to-b from-ground-primary to-ground-secondary;
   }
 
   .type-rock {
-    --type-primary: var(--color-rock-primary);
-    --type-secondary: var(--color-rock-secondary);
+    @apply bg-linear-to-b from-rock-primary to-rock-secondary;
   }
 
   .type-ice {
-    --type-primary: var(--color-ice-primary);
-    --type-secondary: var(--color-ice-secondary);
+    @apply bg-linear-to-b from-ice-primary to-ice-secondary;
   }
 
   .type-flying {
-    --type-primary: var(--color-flying-primary);
-    --type-secondary: var(--color-flying-secondary);
+    @apply bg-linear-to-b from-flying-primary to-flying-secondary;
   }
 
   .type-steel {
-    --type-primary: var(--color-steel-primary);
-    --type-secondary: var(--color-steel-secondary);
+    @apply bg-linear-to-b from-steel-primary to-steel-secondary;
   }
 
   .type-dragon {
-    --type-primary: var(--color-dragon-primary);
-    --type-secondary: var(--color-dragon-secondary);
+    @apply bg-linear-to-b from-dragon-primary to-dragon-secondary;
   }
 
   .type-bug {
-    --type-primary: var(--color-bug-primary);
-    --type-secondary: var(--color-bug-secondary);
+    @apply bg-linear-to-b from-bug-primary to-bug-secondary;
   }
 
   .type-fighting {
-    --type-primary: var(--color-fighting-primary);
-    --type-secondary: var(--color-fighting-secondary);
+    @apply bg-linear-to-b from-fighting-primary to-fighting-secondary;
   }
 
   .type-normal {
-    --type-primary: var(--color-normal-primary);
-    --type-secondary: var(--color-normal-secondary);
+    @apply bg-linear-to-b from-normal-primary to-normal-secondary;
+  }
+
+  .type-fire-transparent {
+    @apply bg-linear-to-b from-fire-primary to-card-bg-transparent;
+  }
+
+  .type-water-transparent {
+    @apply bg-linear-to-b from-water-primary to-card-bg-transparent;
+  }
+
+  .type-grass-transparent {
+    @apply bg-linear-to-b from-grass-primary to-card-bg-transparent;
+  }
+
+  .type-electric-transparent {
+    @apply bg-linear-to-b from-electric-primary to-card-bg-transparent;
+  }
+
+  .type-psychic-transparent {
+    @apply bg-linear-to-b from-psychic-primary to-card-bg-transparent;
+  }
+
+  .type-ghost-transparent {
+    @apply bg-linear-to-b from-ghost-primary to-card-bg-transparent;
+  }
+
+  .type-dark-transparent {
+    @apply bg-linear-to-b from-dark-primary to-card-bg-transparent;
+  }
+
+  .type-fairy-transparent {
+    @apply bg-linear-to-b from-fairy-primary to-card-bg-transparent;
+  }
+
+  .type-poison-transparent {
+    @apply bg-linear-to-b from-poison-primary to-card-bg-transparent;
+  }
+
+  .type-ground-transparent {
+    @apply bg-linear-to-b from-ground-primary to-card-bg-transparent;
+  }
+
+  .type-rock-transparent {
+    @apply bg-linear-to-b from-rock-primary to-card-bg-transparent;
+  }
+
+  .type-ice-transparent {
+    @apply bg-linear-to-b from-ice-primary to-card-bg-transparent;
+  }
+
+  .type-flying-transparent {
+    @apply bg-linear-to-b from-flying-primary to-card-bg-transparent;
+  }
+
+  .type-steel-transparent {
+    @apply bg-linear-to-b from-steel-primary to-card-bg-transparent;
+  }
+
+  .type-dragon-transparent {
+    @apply bg-linear-to-b from-dragon-primary to-card-bg-transparent;
+  }
+
+  .type-bug-transparent {
+    @apply bg-linear-to-b from-bug-primary to-card-bg-transparent;
+  }
+
+  .type-fighting-transparent {
+    @apply bg-linear-to-b from-fighting-primary to-card-bg-transparent;
+  }
+
+  .type-normal-transparent {
+    @apply bg-linear-to-b from-normal-primary to-card-bg-transparent;
   }
 }

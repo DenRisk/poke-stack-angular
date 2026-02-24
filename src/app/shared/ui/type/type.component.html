@@ -1,0 +1,32 @@
+@if (label()) {
+  <div class="flex items-center p-1 pr-3 bg-tag-bg gap-2 rounded-full">
+    <div
+      class="rounded-lg"
+      [ngClass]="[
+        'type-' + pokemonType(),
+        size() === 'sm' ? 'size-4' : '',
+        size() === 'md' ? 'size-6' : '',
+        size() === 'lg' ? 'size-8' : ''
+      ]">
+        <app-icon class="w-full h-full flex items-center justify-center"
+          [iconId]="`type-${pokemonType()}`" [size]="10">
+        </app-icon>
+    </div>
+    <span class="font-bold text-[10px] leading-none">
+      {{ label() }}
+    </span>
+  </div>
+} @else {
+  <div
+    class="flex items-center justify-center rounded-full"
+    [ngClass]="[
+    'type-' + pokemonType(),
+    size() === 'sm' ? 'size-4' : '',
+    size() === 'md' ? 'size-6' : '',
+    size() === 'lg' ? 'size-8' : ''
+  ]">
+    <app-icon
+      [iconId]="`type-${pokemonType()}`">
+    </app-icon>
+  </div>
+}
