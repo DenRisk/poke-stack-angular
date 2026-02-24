@@ -1,18 +1,19 @@
 <div class="rounded-lg card-gradient overflow-hidden">
   <div class="w-full h-36 flex items-center justify-center p-3 relative">
-    <app-pokedex-type-circle class="absolute bottom-0" [pokemonType]="'grass'"/>
+    <app-pokedex-type-circle class="absolute bottom-0" [pokemonType]="primaryPokemonType()"/>
     <app-image
-      class="max-w-16 gap-1 z-50 w-full"
-      [src]="'/images/bisasam001.png'"
-      [alt]="'Bisasam'"
+      class="max-w-32 gap-1 z-50 w-full"
+      [src]="pokemonItem().image"
+      [alt]="pokemonItem().name"
     />
   </div>
   <div class="p-3 flex flex-col gap-1">
-    <p class="text-[10px] font-bold text-typo-secondary leading-none">Nr. 001</p>
-    <p class="text-sm font-bold leading-none">Bisasam</p>
+    <p class="text-[10px] font-bold text-typo-secondary leading-none">{{pokemonItem().id | pokedexIdPipe}}</p>
+    <p class="text-sm font-bold leading-none">{{pokemonItem().name | titlecase}}</p>
     <div class="flex flex-wrap gap-2 pt-3 pb-2">
-      <app-type [pokemonType]="'grass'" [size]="'sm'" [label]="'Plant'"/>
-      <app-type [pokemonType]="'fire'" [size]="'sm'" [label]="'Fire'"/>
+      @for (type of pokemonItem().types; track type) {
+        <app-type [pokemonType]="type" [size]="'sm'" [label]="type | titlecase"/>
+      }
     </div>
   </div>
 </div>

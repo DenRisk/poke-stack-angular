@@ -1,11 +1,13 @@
+import {PokemonType} from '../../../shared/types/pokemon-type.model';
+
 export interface PokemonListResponse {
   count: number;
   next: string;
   previous: string;
-  results: Pokemon[];
+  results: PokemonListResponseItem[];
 }
 
-export interface Pokemon {
+export interface PokemonListResponseItem {
   name: string;
   url: string;
 }
@@ -13,9 +15,12 @@ export interface Pokemon {
 export interface PokemonDetailResponse {
   id: number;
   name: string
+  sprites: {
+    front_default: string
+  }
   types: {
     type: {
-      name: string;
+      name: PokemonType;
     };
   }[];
 }
@@ -23,5 +28,6 @@ export interface PokemonDetailResponse {
 export interface PokemonListItem {
   id: number;
   name: string;
-  types: string[];
+  types: PokemonType[];
+  image: string
 }

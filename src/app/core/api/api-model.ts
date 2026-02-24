@@ -1,31 +1,16 @@
-export type ApiStatus = 'idle' | 'loading' | 'success' | 'error';
-
-export interface Result<T> {
-  status: ApiStatus;
-  data: T | null;
-  error: string | null;
+export interface ApiError {
+  message: string;
+  status?: number;
+  url?: string;
+  original?: unknown;
 }
 
-export const idle = <T>(): Result<T> => ({
-  status: 'idle',
-  data: null,
-  error: null,
-});
+export type ApiResult<T> =
+  | { status: 'success'; data: T }
+  | { status: 'error'; error: ApiError };
 
-export const loading = <T>(): Result<T> => ({
-  status: 'loading',
-  data: null,
-  error: null,
-});
-
-export const success = <T>(data: T): Result<T> => ({
-  status: 'success',
-  data,
-  error: null,
-});
-
-export const failure = <T>(error: string): Result<T> => ({
-  status: 'error',
-  data: null,
-  error,
-});
+export const success = <T>(data: T): ApiResult<T> => ({ status: 'success', data });
+export const failure = <T>(error: ApiError | string): ApiResult<T> =>
+  typeof error === 'string'
+    ? { status: 'error', error: { message: error } }
+    : { status: 'error', error };

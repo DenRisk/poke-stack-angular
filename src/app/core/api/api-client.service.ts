@@ -1,7 +1,7 @@
-import {Injectable, inject} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {failure, Result, success} from './api-model';
-import {firstValueFrom} from "rxjs";
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
+import { ApiResult, success, failure } from './api-model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,14 +9,25 @@ import {firstValueFrom} from "rxjs";
 export class ApiClient {
   private http = inject(HttpClient);
 
-  async get<T>(url: string): Promise<Result<T>> {
+  async get<T>(url: string): Promise<ApiResult<T>> {
     try {
       const data = await firstValueFrom(this.http.get<T>(url));
       return success(data);
-    } catch (err: any) {
-      return failure(
-        err?.error?.message ?? 'Unexpected server error'
-      );
+    } catch (error) {
+      if (error instanceof HttpErrorResponse) {
+        return failure({
+          message: error.message,
+          status: error.status,
+          url,
+          original: error,
+        });
+      }
+
+      return failure({
+        message: 'Unexpected error',
+        url,
+        original: error,
+      });
     }
   }
 }

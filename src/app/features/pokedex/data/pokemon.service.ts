@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { ApiClient } from '../../../core/api/api-client.service';
-import {failure, Result, success} from '../../../core/api/api-model';
-import {PokemonDetailResponse, PokemonListItem, PokemonListResponse} from './pokemon.model';
+import { ApiResult, failure, success } from '../../../core/api/api-model';
+import { PokemonDetailResponse, PokemonListItem, PokemonListResponse } from './pokemon.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,46 +10,52 @@ export class PokemonService {
   private api = inject(ApiClient);
   private baseUrl = 'https://pokeapi.co/api/v2';
 
-  async getPokemonList(
-    limit = 20,
-    offset = 0
-  ): Promise<Result<PokemonListResponse>> {
-    return this.api.get<PokemonListResponse>(
-      `${this.baseUrl}/pokemon?limit=${limit}&offset=${offset}`
-    );
-  }
-
   async getPokemonListWithDetails(
     limit = 20,
     offset = 0
-  ): Promise<Result<PokemonListItem[]>> {
+  ): Promise<ApiResult<PokemonListItem[]>> {
+
     const listResult = await this.api.get<PokemonListResponse>(
       `${this.baseUrl}/pokemon?limit=${limit}&offset=${offset}`
     );
 
-    if (listResult.status !== 'success' || !listResult.data) {
-      return failure('Could not fetch pokemon data')
+    if (listResult.status !== 'success') {
+      return failure(listResult.error ?? { message: 'Could not fetch pokemon list' });
     }
 
-    try {
-      const detailPromises = listResult.data.results.map(pokemon =>
-        this.api.get<PokemonDetailResponse>(pokemon.url)
-      );
+    const pokemonEntries = listResult.data.results;
 
-      const detailResults = await Promise.all(detailPromises);
-
-      const enriched: PokemonListItem[] = detailResults
-        .filter(r => r.status === 'success' && r.data)
-        .map(r => ({
-          id: r.data!.id,
-          name: r.data!.name,
-          types: r.data!.types.map(t => t.type.name),
-        }));
-
-      return success(enriched);
-    } catch (err: any) {
-      return failure(err.message);
+    if (pokemonEntries.length === 0) {
+      return failure({ message: 'No Pokémon found' });
     }
+
+    const detailResults = await Promise.all(
+      pokemonEntries.map(p => this.api.get<PokemonDetailResponse>(p.url))
+    );
+
+    console.log(detailResults)
+
+    const failedDetails = detailResults.filter(r => r.status === 'error');
+
+    if (failedDetails.length > 0) {
+      const messages = failedDetails
+        .map(f => (f.status === 'error' ? f.error?.message ?? 'Unknown error' : ''))
+        .join('; ');
+
+      return failure({
+        message: `Failed to fetch ${failedDetails.length} Pokémon details: ${messages}`
+      });
+    }
+
+    const enriched: PokemonListItem[] = detailResults
+      .filter(r => r.status === 'success')
+      .map(res => ({
+        id: res.data.id,
+        name: res.data.name,
+        types: res.data.types.map(item => item.type.name),
+        image: res.data.sprites.front_default
+      }));
+
+    return success(enriched);
   }
-
 }
