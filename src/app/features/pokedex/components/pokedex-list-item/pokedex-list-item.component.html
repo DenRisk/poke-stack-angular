@@ -1,18 +1,33 @@
-<div class="rounded-lg card-gradient overflow-hidden">
-  <div class="w-full h-36 flex items-center justify-center p-3 relative">
-    <app-pokedex-type-circle class="absolute bottom-0" [pokemonType]="primaryPokemonType()"/>
+<div class="pokedex-card">
+  <div class="pokedex-card__media">
+    <app-pokedex-type-circle
+      class="pokedex-card__type-circle"
+      [pokemonType]="primaryPokemonType()">
+    </app-pokedex-type-circle>
+
     <app-image
-      class="max-w-32 gap-1 z-50 w-full"
+      class="pokedex-card__image"
       [src]="pokemonItem().image"
-      [alt]="pokemonItem().name"
-    />
+      [alt]="pokemonItem().name">
+    </app-image>
   </div>
-  <div class="p-3 flex flex-col gap-1">
-    <p class="text-[10px] font-bold text-typo-secondary leading-none">{{pokemonItem().id | pokedexIdPipe}}</p>
-    <p class="text-sm font-bold leading-none">{{pokemonItem().name | titlecase}}</p>
-    <div class="flex flex-wrap gap-2 pt-3 pb-2">
+
+  <div class="pokedex-card__content">
+    <p class="pokedex-card__id">
+      {{ pokemonItem().id | pokedexIdPipe }}
+    </p>
+
+    <p class="pokedex-card__name">
+      {{ pokemonItem().name | titlecase }}
+    </p>
+
+    <div class="pokedex-card__types">
       @for (type of pokemonItem().types; track type) {
-        <app-type [pokemonType]="type" [size]="'sm'" [label]="type | titlecase"/>
+        <app-type
+          [pokemonType]="type"
+          [size]="'sm'"
+          [label]="type | titlecase">
+        </app-type>
       }
     </div>
   </div>

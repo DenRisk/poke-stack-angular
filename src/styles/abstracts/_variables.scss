@@ -1,0 +1,92 @@
+:root {
+  /* Font and Font Size*/
+  --font-sans: 'Play', sans-serif;
+
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #AFAFC8;
+
+  /* Sidebar */
+  --sidebar-bg-from: #1A133A;
+  --sidebar-bg-to: #2C244E;
+  --sidebar-item-active-from: rgba(172, 82, 115, 1);
+  --sidebar-item-active-to: rgba(85, 56, 118, 0.2);
+
+  /* Form Control */
+  --control-bg: #2E254B;
+  --control-bg-active: #A34F72;
+  --control-bg-hover: #4F4272;
+
+  /* Tag */
+  --tag-bg: #332e5e;
+
+  /* Card */
+  --card-bg-from: #29214A;
+  --card-bg-to: #101032;
+  --card-border: #2f2340;
+  --card-bg-transparent: rgba(50, 61, 96, 0.5);
+
+  /* Page */
+  --page-bg-from: #0D0924;
+  --page-bg-to: #191428;
+
+  /* Pokemon Type Default */
+  --type-default-primary: rgba(255, 255, 255, 1);
+  --type-default-secondary: rgba(255, 255, 255, 0);
+
+  /* Pokemon Types */
+  --type-fire-primary: #f97316;
+  --type-fire-secondary: #fb923c;
+  --type-water-primary: #60a5fa;
+  --type-water-secondary: #93c5fd;
+  --type-grass-primary: #5fd068;
+  --type-grass-secondary: #6ee77b;
+  --type-electric-primary: #fde047;
+  --type-electric-secondary: #facc15;
+  --type-psychic-primary: #fb7185;
+  --type-psychic-secondary: #fda4af;
+  --type-ice-primary: #67e8f9;
+  --type-ice-secondary: #a5f3fc;
+  --type-dragon-primary: #6366f1;
+  --type-dragon-secondary: #818cf8;
+  --type-dark-primary: #4b5563;
+  --type-dark-secondary: #6b7280;
+  --type-fairy-primary: #f472b6;
+  --type-fairy-secondary: #f9a8d4;
+  --type-fighting-primary: #e11d48;
+  --type-fighting-secondary: #ef4444;
+  --type-poison-primary: #a855f7;
+  --type-poison-secondary: #c084fc;
+  --type-ground-primary: #f59e0b;
+  --type-ground-secondary: #fbbf24;
+  --type-flying-primary: #93c5fd;
+  --type-flying-secondary: #bae6fd;
+  --type-bug-primary: #92d050;
+  --type-bug-secondary: #a3e635;
+  --type-rock-primary: #d6d3a3;
+  --type-rock-secondary: #e7e5b4;
+  --type-ghost-primary: #8b5cf6;
+  --type-ghost-secondary: #a78bfa;
+  --type-steel-primary: #94a3b8;
+  --type-steel-secondary: #cbd5e1;
+  --type-normal-primary: #9ca3af;
+  --type-normal-secondary: #d1d5db;
+}

@@ -1,32 +1,33 @@
 @if (label()) {
-  <div class="flex items-center p-1 pr-3 bg-tag-bg gap-2 rounded-full">
+  <div class="type-tag">
     <div
-      class="rounded-lg"
+      class="type-tag__icon-container"
       [ngClass]="[
-        'type-' + pokemonType(),
-        size() === 'sm' ? 'size-4' : '',
-        size() === 'md' ? 'size-6' : '',
-        size() === 'lg' ? 'size-8' : ''
-      ]">
-        <app-icon class="w-full h-full flex items-center justify-center"
-          [iconId]="`type-${pokemonType()}`" [size]="10">
-        </app-icon>
+        `type-${pokemonType()}`,
+        size() === 'sm' ? 'type-tag__icon--sm' : '',
+        size() === 'md' ? 'type-tag__icon--md' : '',
+        size() === 'lg' ? 'type-tag__icon--lg' : ''
+      ]"
+    >
+      <app-icon
+        class="type-tag__icon"
+        [iconId]="`type-${pokemonType()}`"
+        [size]="10">
+      </app-icon>
     </div>
-    <span class="font-bold text-[10px] leading-none">
-      {{ label() }}
-    </span>
+
+    <span class="type-tag__label">{{ label() }}</span>
   </div>
 } @else {
   <div
-    class="flex items-center justify-center rounded-full"
+    class="type-tag type-tag--icon-only"
     [ngClass]="[
-    'type-' + pokemonType(),
-    size() === 'sm' ? 'size-4' : '',
-    size() === 'md' ? 'size-6' : '',
-    size() === 'lg' ? 'size-8' : ''
-  ]">
-    <app-icon
-      [iconId]="`type-${pokemonType()}`">
-    </app-icon>
+      `type-${pokemonType()}`,
+      size() === 'sm' ? 'type-tag__icon--sm' : '',
+      size() === 'md' ? 'type-tag__icon--md' : '',
+      size() === 'lg' ? 'type-tag__icon--lg' : ''
+    ]"
+  >
+    <app-icon [iconId]="`type-${pokemonType()}`"></app-icon>
   </div>
 }

@@ -6,10 +6,12 @@ import {HeaderComponent} from '../../../header/components/header/header.componen
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
+  styleUrls: ['./main-layout.component.scss'],
   imports: [
     RouterOutlet,
     SideNavigationComponent,
     HeaderComponent
   ]
 })
-export class MainLayoutComponent {}
+export class MainLayoutComponent {
+}

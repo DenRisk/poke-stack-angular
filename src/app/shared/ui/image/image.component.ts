@@ -3,9 +3,9 @@ import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-image',
-  standalone: true,
+  templateUrl: './image.component.html',
+  styleUrls: ['./image.component.scss'],
   imports: [NgOptimizedImage],
-  templateUrl: './image.component.html'
 })
 export class PokemonImageComponent {
   src = input.required<string>();

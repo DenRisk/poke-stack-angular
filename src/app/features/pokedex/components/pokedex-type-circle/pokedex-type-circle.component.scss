@@ -1,0 +1,22 @@
+.type-circle {
+  --circle-width: 15.75rem;
+  --circle-height: 9rem;
+  --circle-radius-bottom: 9999px;
+
+  width: var(--circle-width);
+  height: var(--circle-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0 0 var(--circle-radius-bottom) var(--circle-radius-bottom);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.type-circle__icon {
+  opacity: 0.05;
+  pointer-events: none;
+}

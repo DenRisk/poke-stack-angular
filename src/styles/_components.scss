@@ -1,0 +1,16 @@
+.navigation-gradient {
+  background: linear-gradient(to top, var(--sidebar-bg-from), var(--sidebar-bg-to));
+}
+
+.card-gradient {
+  background: linear-gradient(to top, var(--card-bg-from), var(--card-bg-to));
+  border: 1px solid var(--card-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.navbar-item-active {
+  background: linear-gradient(to right, var(--sidebar-item-active-from), var(--sidebar-item-active-to));
+  color: var(--text-primary);
+  font-weight: bold;
+}

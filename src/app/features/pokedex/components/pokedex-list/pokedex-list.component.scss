@@ -1,0 +1,21 @@
+.pokedex-grid {
+  --card-min-width: 130px;
+  --card-max-width: 184px;
+  --grid-gap: 1.5rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), var(--card-max-width)));
+  gap: var(--grid-gap);
+  justify-content: center;
+  align-items: stretch;
+}
+@media (max-width: 480px) {
+  .pokedex-grid {
+    --card-min-width: 120px;
+    --card-max-width: 1fr;
+  }
+}
+
+.pokedex-grid > * {
+  width: 100%;
+}

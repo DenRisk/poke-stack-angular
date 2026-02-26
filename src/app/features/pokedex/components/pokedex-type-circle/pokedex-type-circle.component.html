@@ -1,5 +1,11 @@
 <div
-  class="w-63 h-36 rounded-b-full flex items-center justify-center"
-  [ngClass]="`type-${pokemonType()}-transparent`">
-  <app-icon class="opacity-5" [iconId]="'type-grass'" [size]="116"/>
+  class="type-circle"
+  [ngClass]="'type-' + pokemonType() + '-transparent'">
+
+  <app-icon
+    class="type-circle__icon"
+    [iconId]="'type-grass'"
+    [size]="116">
+  </app-icon>
+
 </div>

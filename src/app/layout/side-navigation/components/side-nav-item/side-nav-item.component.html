@@ -1,11 +1,11 @@
-<li class="font-bold text-base text-">
+<li class="sidebar-nav-item">
   <a
     [routerLink]="routerLink()"
-    [routerLinkActiveOptions]="{exact: true}"
-    routerLinkActive="navbar-item-active text-typo-primary"
-    class="flex flex-row gap-3 py-2 px-4 w-full leading-none rounded-full items-end text-typo-secondary hover:text-typo-primary [&.navbar-item-active]:text-typo-primary"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="sidebar-nav-item--active"
+    class="sidebar-nav-item__link"
   >
-    <app-icon [iconId]="iconId()" [size]="16"></app-icon>
-    <p>{{ label() }}</p>
+    <app-icon class="sidebar-nav-item__icon" [iconId]="iconId()" [size]="16"></app-icon>
+    <p class="sidebar-nav-item__label">{{ label() }}</p>
   </a>
 </li>

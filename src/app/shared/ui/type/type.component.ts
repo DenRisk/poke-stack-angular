@@ -1,11 +1,12 @@
 import {Component, input, output} from '@angular/core';
 import {PokemonType} from '../../types/pokemon-type.model';
 import {NgClass} from '@angular/common';
-import {IconComponent} from '../icon/components/icon.component';
+import {IconComponent} from '../icon/icon.component';
 
 @Component({
   selector: 'app-type',
   templateUrl: './type.component.html',
+  styleUrls: ['./type.component.scss'],
   imports: [
     NgClass,
     IconComponent

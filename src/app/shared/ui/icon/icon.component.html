@@ -1,0 +1,10 @@
+@if (iconId(); as iconId) {
+  <svg
+    [attr.width]="size()"
+    [attr.height]="size()"
+    [attr.fill]="color()"
+    class="app-icon"
+  >
+    <use [attr.href]="config.spritePublicPath + '#' + iconId"></use>
+  </svg>
+}

@@ -1,5 +1,5 @@
 import {Component, computed, input} from '@angular/core';
-import {PokemonImageComponent} from '../../../../shared/ui/image/components/image.component';
+import {PokemonImageComponent} from '../../../../shared/ui/image/image.component';
 import {TypeComponent} from '../../../../shared/ui/type/type.component';
 import {PokedexTypeCircleComponent} from '../pokedex-type-circle/pokedex-type-circle.component';
 import {PokemonListItem} from '../../data/pokemon.model';
@@ -9,6 +9,7 @@ import {TitleCasePipe} from '@angular/common';
 @Component({
   selector: 'app-pokedex-list-item',
   templateUrl: './pokedex-list-item.component.html',
+  styleUrls: ['./pokedex-list-item.component.scss'],
   imports: [
     PokemonImageComponent,
     TypeComponent,

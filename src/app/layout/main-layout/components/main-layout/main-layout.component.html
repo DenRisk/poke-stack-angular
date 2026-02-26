@@ -1,15 +1,14 @@
-<div class="h-dvh relative grid grid-cols-[16rem_1fr]">
-  <aside class="bg-transparent p-6 w-full h-full">
-    <app-side-navigation/>
+<div class="app-layout">
+  <aside class="app-layout__sidebar">
+    <app-side-navigation></app-side-navigation>
   </aside>
 
-
-  <div>
-    <header class="h-20 bg-transparent px-8 flex items-center justify-end">
+  <div class="app-layout__main">
+    <header class="app-layout__header">
       <app-header></app-header>
     </header>
 
-    <main class="pt-12 p-8 overflow-y-auto">
+    <main class="app-layout__content">
       <router-outlet></router-outlet>
     </main>
   </div>

@@ -7,6 +7,7 @@ import {PaginationComponent} from '../../../../shared/ui/pagination/pagination.c
 @Component({
   selector: 'app-pokedex-list',
   templateUrl: './pokedex-list.component.html',
+  styleUrls: ['./pokedex-list.component.scss'],
   standalone: true,
   imports: [PokedexListItemComponent, PaginationComponent]
 })

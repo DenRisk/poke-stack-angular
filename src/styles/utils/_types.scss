@@ -1,0 +1,23 @@
+$types: fire, water, grass, electric, psychic, ice, dragon, dark, fairy, fighting, poison, ground, flying, bug, rock, ghost, steel, normal;
+
+@each $type in $types {
+  .type-#{$type} {
+    background: linear-gradient(
+        to bottom,
+        var(--type-#{$type}-primary),
+        var(--type-#{$type}-secondary)
+    );
+    color: #fff;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+  }
+
+  .type-#{$type}-transparent {
+    background: linear-gradient(
+        to bottom,
+        var(--type-#{$type}-primary),
+        var(--card-bg-transparent)
+    );
+  }
+}

@@ -1,7 +1,8 @@
-<div class="px-4 py-2 bg-control-bg rounded-full flex gap-3 items-center leading-none text-sm min-h-10 min-w-2xs">
-  <app-icon [iconId]="'search'" [size]="16"/>
+<div class="search-input">
+  <app-icon class="search-input__icon" [iconId]="'search'" [size]="16"></app-icon>
+
   <input
-    class="outline-0 grow"
+    class="search-input__field"
     type="text"
     [formControl]="searchControl"
     placeholder="Search..."

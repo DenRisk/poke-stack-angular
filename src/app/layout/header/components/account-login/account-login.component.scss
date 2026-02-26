@@ -1,0 +1,31 @@
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-user__avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--sidebar-item-active-from);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.navbar-user__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  line-height: var(--leading-none);
+}
+
+.navbar-user__greeting {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.navbar-user__name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+}

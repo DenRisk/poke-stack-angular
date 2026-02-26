@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination__button {
+  padding: 0.5rem 0.75rem;
+  line-height: 1;
+  border-radius: 0.5rem;
+  font-weight: 500;
+
+  background-color: hsl(220 10% 96%);
+  color: hsl(220 10% 55%);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pagination__button:hover {
+  background-color: hsl(220 10% 92%);
+}
+
+.pagination__button--active {
+  background-color: hsl(220 10% 85%);
+  color: hsl(220 80% 50%);
+}

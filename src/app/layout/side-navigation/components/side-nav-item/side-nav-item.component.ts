@@ -1,11 +1,12 @@
 import { Component, input, output } from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
-import { IconComponent } from '../../../../shared/ui/icon/components/icon.component';
-import { IconName } from '../../../../shared/ui/icon/types/icon.types';
+import { IconComponent } from '../../../../shared/ui/icon/icon.component';
+import { IconName } from '../../../../shared/ui/icon/icon.types';
 
 @Component({
   selector: 'app-side-nav-item',
   templateUrl: './side-nav-item.component.html',
+  styleUrls: ['./side-nav-item.component.scss'],
   imports: [RouterLink, IconComponent, RouterLinkActive],
 })
 export class SideNavItemComponent {

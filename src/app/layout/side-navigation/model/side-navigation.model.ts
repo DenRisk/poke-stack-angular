@@ -1,4 +1,4 @@
-import { IconName } from '../../../shared/ui/icon/types/icon.types';
+import { IconName } from '../../../shared/ui/icon/icon.types';
 
 export interface SideNavigationItemModel {
   label: string;
