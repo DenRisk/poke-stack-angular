@@ -1,7 +1,7 @@
-import { Injectable, inject } from '@angular/core';
-import { ApiClient } from '../../../core/api/api-client.service';
-import { ApiResult, failure, success } from '../../../core/api/api-model';
-import { PokemonDetailResponse, PokemonListItem, PokemonListResponse } from './pokemon.model';
+import {Injectable, inject} from '@angular/core';
+import {ApiClient} from '../../../core/api/api-client.service';
+import {ApiResult, failure, success} from '../../../core/api/api-model';
+import {ApiPokemonDetailResponse, PokemonList, PokemonListItem, ApiPokemonListResponse} from './pokemon.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,24 +13,24 @@ export class PokemonService {
   async getPokemonListWithDetails(
     limit = 20,
     offset = 0
-  ): Promise<ApiResult<PokemonListItem[]>> {
+  ): Promise<ApiResult<PokemonList>> {
 
-    const listResult = await this.api.get<PokemonListResponse>(
+    const listResult = await this.api.get<ApiPokemonListResponse>(
       `${this.baseUrl}/pokemon?limit=${limit}&offset=${offset}`
     );
 
     if (listResult.status !== 'success') {
-      return failure(listResult.error ?? { message: 'Could not fetch pokemon list' });
+      return failure(listResult.error ?? {message: 'Could not fetch pokemon list'});
     }
 
     const pokemonEntries = listResult.data.results;
 
     if (pokemonEntries.length === 0) {
-      return failure({ message: 'No Pokémon found' });
+      return failure({message: 'No Pokémon found'});
     }
 
     const detailResults = await Promise.all(
-      pokemonEntries.map(p => this.api.get<PokemonDetailResponse>(p.url))
+      pokemonEntries.map(p => this.api.get<ApiPokemonDetailResponse>(p.url))
     );
 
     console.log(detailResults)
@@ -47,15 +47,18 @@ export class PokemonService {
       });
     }
 
-    const enriched: PokemonListItem[] = detailResults
-      .filter(r => r.status === 'success')
-      .map(res => ({
-        id: res.data.id,
-        name: res.data.name,
-        types: res.data.types.map(item => item.type.name),
-        image: res.data.sprites.front_default
-      }));
+    const pokemonList: PokemonList = {
+      items: detailResults
+        .filter(r => r.status === 'success')
+        .map(res => ({
+          id: res.data.id,
+          name: res.data.name,
+          types: res.data.types.map(item => item.type.name),
+          image: res.data.sprites.front_default
+        })),
+      total: listResult.data.count
+    }
 
-    return success(enriched);
+    return success(pokemonList);
   }
 }

@@ -1,6 +1,6 @@
 
 <app-pagination
-  [totalItems]="totalItems"
+  [totalItems]="totalItems()"
   [itemsPerPage]="limit"
   [currentPage]="currentPage()"
   (pageChange)="onPageChange($event)">

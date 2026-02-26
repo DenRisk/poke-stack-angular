@@ -3,7 +3,6 @@ import {PokedexListItemComponent} from '../pokedex-list-item/pokedex-list-item.c
 import {PokemonService} from '../../data/pokemon.service';
 import {PokemonListItem} from '../../data/pokemon.model';
 import {PaginationComponent} from '../../../../shared/ui/pagination/pagination.component';
-import {of} from 'rxjs';
 
 @Component({
   selector: 'app-pokedex-list',
@@ -12,15 +11,14 @@ import {of} from 'rxjs';
   imports: [PokedexListItemComponent, PaginationComponent]
 })
 export class PokedexListComponent implements OnInit {
-
   private pokemonService = inject(PokemonService);
 
   loading = signal(false);
   pokemonList = signal<PokemonListItem[]>([]);
-
   currentPage = signal(1);
+  totalItems = signal<number>(0)
+
   readonly limit = 18;
-  readonly totalItems = 1302;
 
   ngOnInit() {
     this.fetchPokemonList();
@@ -38,7 +36,8 @@ export class PokedexListComponent implements OnInit {
     this.loading.set(false);
 
     if (result.status === 'success') {
-      this.pokemonList.set(result.data);
+      this.pokemonList.set(result.data.items);
+      this.totalItems.set(result.data.total);
     }
   }
 

@@ -32,9 +32,11 @@
 
   /* Form Control */
   --control-bg: #2E254B;
+  --control-bg-active: #A34F72;
+  --control-bg-hover: #4F4272;
 
   /* Tag */
-  --tag-bg: #2E254B;
+  --tag-bg: #332e5e;
 
   /* Card */
   --card-bg-from: #29214A;
@@ -103,6 +105,8 @@
 
   /* Form Control */
   --color-control-bg: var(--control-bg);
+  --color-control-bg-active: var(--control-bg-active);
+  --color-control-bg-hover: var(--control-bg-hover);
 
   /* Tag */
   --color-tag-bg: var(--tag-bg);

@@ -1,17 +1,11 @@
-<div class="pagination">
-  <button
-    (click)="previous()"
-    [disabled]="currentPage() === 1">
-    Previous
-  </button>
+<button class="px-3 py-2 leading-none rounded-lg bg-control-bg" (click)="previous()"><</button>
 
-  <span>
-    Page {{ currentPage() }} of {{ totalPages() }}
-  </span>
-
+@for (page of visiblePages(); track page) {
   <button
-    (click)="next()"
-    [disabled]="currentPage() === totalPages()">
-    Next
+    [class]="dynamicButtonClasses(page)"
+    (click)="pageChange.emit(page)">
+    {{ page }}
   </button>
-</div>
+}
+
+<button class="px-3 py-2 leading-none rounded-lg bg-control-bg" (click)="next()"><</button>

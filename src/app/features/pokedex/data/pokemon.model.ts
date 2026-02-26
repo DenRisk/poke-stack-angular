@@ -1,18 +1,20 @@
 import {PokemonType} from '../../../shared/types/pokemon-type.model';
 
-export interface PokemonListResponse {
+// API Model
+
+export interface ApiPokemonListResponse {
   count: number;
   next: string;
   previous: string;
-  results: PokemonListResponseItem[];
+  results: ApiPokemonListResponseItem[];
 }
 
-export interface PokemonListResponseItem {
+export interface ApiPokemonListResponseItem {
   name: string;
   url: string;
 }
 
-export interface PokemonDetailResponse {
+export interface ApiPokemonDetailResponse {
   id: number;
   name: string
   sprites: {
@@ -23,6 +25,13 @@ export interface PokemonDetailResponse {
       name: PokemonType;
     };
   }[];
+}
+
+// UI Model
+
+export interface PokemonList {
+  items: PokemonListItem[];
+  total: number;
 }
 
 export interface PokemonListItem {
