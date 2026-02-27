@@ -33,8 +33,6 @@ export class PokemonService {
       pokemonEntries.map(p => this.api.get<ApiPokemonDetailResponse>(p.url))
     );
 
-    console.log(detailResults)
-
     const failedDetails = detailResults.filter(r => r.status === 'error');
 
     if (failedDetails.length > 0) {

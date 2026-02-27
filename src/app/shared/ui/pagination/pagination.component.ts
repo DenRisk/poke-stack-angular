@@ -1,5 +1,6 @@
-import { Component, computed, input, output } from '@angular/core';
+import {Component, computed, input, output} from '@angular/core';
 import {cn} from '../../utils/cn';
+import {PaginationItem} from './pagination.model';
 
 @Component({
   selector: 'app-pagination',
@@ -15,16 +16,41 @@ export class PaginationComponent {
   // outputs
   pageChange = output<number>();
 
-  // computed
-  visiblePages = computed(() => {
+
+  visibleItems = computed<PaginationItem[]>(() => {
     const total = this.totalPages();
     const current = this.currentPage();
+    const delta = 1;
 
-    const delta = 2;
-    const start = Math.max(1, current - delta);
-    const end = Math.min(total, current + delta);
+    const items: PaginationItem[] = [];
 
-    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+    if (total <= 5) {
+      for (let i = 1; i <= total; i++) {
+        items.push({type: 'page', value: i});
+      }
+      return items;
+    }
+
+    const rangeStart = Math.max(2, current - delta);
+    const rangeEnd = Math.min(total - 1, current + delta);
+
+    items.push({type: 'page', value: 1});
+
+    if (rangeStart > 2) {
+      items.push({type: 'ellipsis'});
+    }
+
+    for (let i = rangeStart; i <= rangeEnd; i++) {
+      items.push({type: 'page', value: i});
+    }
+
+    if (rangeEnd < total - 1) {
+      items.push({type: 'ellipsis'});
+    }
+
+    items.push({type: 'page', value: total});
+
+    return items;
   });
 
 

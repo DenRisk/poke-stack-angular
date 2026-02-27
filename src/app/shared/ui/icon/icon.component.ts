@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { IconName } from './icon.types';
+import { IconName } from './icon.model';
 import { ICON_CONFIG } from '../../../core/config/icon.config';
 
 @Component({

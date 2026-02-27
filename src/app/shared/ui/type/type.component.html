@@ -1,12 +1,12 @@
 @if (label()) {
   <div class="type-tag">
     <div
-      class="type-tag__icon-container"
+      class="type"
       [ngClass]="[
         `type-${pokemonType()}`,
-        size() === 'sm' ? 'type-tag__icon--sm' : '',
-        size() === 'md' ? 'type-tag__icon--md' : '',
-        size() === 'lg' ? 'type-tag__icon--lg' : ''
+        size() === 'sm' ? 'size--sm' : '',
+        size() === 'md' ? 'size--md' : '',
+        size() === 'lg' ? 'size--lg' : ''
       ]"
     >
       <app-icon
@@ -20,14 +20,18 @@
   </div>
 } @else {
   <div
-    class="type-tag type-tag--icon-only"
+    class="type"
     [ngClass]="[
       `type-${pokemonType()}`,
-      size() === 'sm' ? 'type-tag__icon--sm' : '',
-      size() === 'md' ? 'type-tag__icon--md' : '',
-      size() === 'lg' ? 'type-tag__icon--lg' : ''
+      size() === 'sm' ? 'size--sm' : '',
+      size() === 'md' ? 'size--md' : '',
+      size() === 'lg' ? 'size--lg' : ''
     ]"
   >
-    <app-icon [iconId]="`type-${pokemonType()}`"></app-icon>
+    <app-icon
+      class="type__icon"
+      [iconId]="`type-${pokemonType()}`"
+      [size]="10">
+    </app-icon>
   </div>
 }

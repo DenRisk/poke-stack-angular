@@ -1,11 +1,39 @@
-<button class="px-3 py-2 leading-none rounded-lg bg-control-bg" (click)="previous()"><</button>
+<div class="pagination">
 
-@for (page of visiblePages(); track page) {
   <button
-    [class]="dynamicButtonClasses(page)"
-    (click)="pageChange.emit(page)">
-    {{ page }}
+    class="pagination__button"
+    (click)="previous()"
+    [disabled]="currentPage() === 1"
+  >
+    ‹
   </button>
-}
 
-<button class="px-3 py-2 leading-none rounded-lg bg-control-bg" (click)="next()"><</button>
+  @for (item of visibleItems(); track $index) {
+
+    @if (item.type === 'page') {
+      <button
+        class="pagination__button"
+        [class.pagination__button--active]="item.value === currentPage()"
+        (click)="pageChange.emit(item.value)"
+        [disabled]="item.value === currentPage()"
+        [attr.aria-current]="item.value === currentPage() ? 'page' : null"
+      >
+        {{ item.value }}
+      </button>
+    }
+
+    @if (item.type === 'ellipsis') {
+      <span class="pagination__ellipsis">…</span>
+    }
+
+  }
+
+  <button
+    class="pagination__button"
+    (click)="next()"
+    [disabled]="currentPage() === totalPages()"
+  >
+    ›
+  </button>
+
+</div>

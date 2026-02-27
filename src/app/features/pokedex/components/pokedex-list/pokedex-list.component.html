@@ -1,9 +1,12 @@
-<app-pagination
-  [totalItems]="totalItems()"
-  [itemsPerPage]="limit"
-  [currentPage]="currentPage()"
-  (pageChange)="onPageChange($event)">
-</app-pagination>
+
+<div class="pokedex-pagination">
+  <app-pagination
+    [totalItems]="totalItems()"
+    [itemsPerPage]="limit"
+    [currentPage]="currentPage()"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+</div>
 
 <div class="pokedex-grid">
   @for (listItem of pokemonList(); track listItem.id) {

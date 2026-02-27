@@ -1,7 +1,7 @@
 import { Component, input, output } from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import { IconComponent } from '../../../../shared/ui/icon/icon.component';
-import { IconName } from '../../../../shared/ui/icon/icon.types';
+import { IconName } from '../../../../shared/ui/icon/icon.model';
 
 @Component({
   selector: 'app-side-nav-item',

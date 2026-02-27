@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import {Component, computed, input} from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
@@ -8,6 +8,13 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [NgOptimizedImage],
 })
 export class PokemonImageComponent {
-  src = input.required<string>();
-  alt = input.required<string>();
+  imageSrc = input.required<string>();
+  imageAlt = input.required<string>();
+
+  fallbackImage = '/images/PikatchuFallback.png';
+
+  safeImageSrc = computed(() => {
+    return this.imageSrc() || this.fallbackImage;
+  });
+
 }
