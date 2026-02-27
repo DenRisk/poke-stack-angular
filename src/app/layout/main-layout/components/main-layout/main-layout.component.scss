@@ -1,16 +1,23 @@
 .app-layout {
   display: grid;
-  grid-template-columns: 16rem 1fr;
+  grid-template-columns: auto 1fr; /* auto folgt der Sidebar-Breite */
   height: 100dvh;
-  position: relative;
+  overflow: hidden;
 }
 
 .app-layout__sidebar {
-  background-color: transparent;
+  width: 16rem;
+  height: 100dvh;
   padding: 1.5rem;
-  width: 100%;
-  height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease, padding 0.3s ease;
+}
+
+@media (max-width: 778px) {
+  .app-layout__sidebar {
+    width: 6rem;
+  }
 }
 
 .app-layout__main {
